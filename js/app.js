@@ -14,7 +14,7 @@ const displayPhones = (phones, dataLimit) => {
     phones = phones.slice(0, 10);
     showAll.classList.remove("d-none");
   } else {
-    showAll.classList.add("d-hidden");
+    showAll.classList.add("d-none");
   }
 
   // display no phones found
