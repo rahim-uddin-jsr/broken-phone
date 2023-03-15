@@ -82,7 +82,7 @@ document.getElementById("btn-show-all").addEventListener("click", function () {
 });
 
 const loadPhoneDetails = async (id) => {
-  const url = `www.openapi.programming-hero.com/api/phone/${id}`;
+  const url = `https://openapi.programming-hero.com/api/phone/${id}`;
   const res = await fetch(url);
   const data = await res.json();
   displayPhoneDetails(data.data);
@@ -91,12 +91,13 @@ const loadPhoneDetails = async (id) => {
 const displayPhoneDetails = (phone) => {
   console.log(phone);
   const modalTitle = document.getElementById("phoneDetailModalLabel");
+  modalTitle.classList.add("text-dark");
   modalTitle.innerText = phone.name;
   const phoneDetails = document.getElementById("phone-details");
   console.log(phone.mainFeatures.sensors[0]);
   phoneDetails.innerHTML = `
         <p>Release Date: ${phone.releaseDate}</p>
-        <p>Storage: ${phone.mainFeatures}</p>
+        <p>Storage: ${phone.mainFeatures.memory}</p>
         <p>Others: ${
           phone.others ? phone.others.Bluetooth : "No Bluetooth Information"
         }</p>
