@@ -7,7 +7,7 @@ const loadPhones = async (searchText, dataLimit) => {
 
 const displayPhones = (phones, dataLimit) => {
   const phonesContainer = document.getElementById("phones-container");
-  // phonesContainer.textContent = '';
+  phonesContainer.textContent = "";
   // display 10 phones only
   const showAll = document.getElementById("show-all");
   if (dataLimit && phones.length > 10) {
@@ -30,7 +30,7 @@ const displayPhones = (phones, dataLimit) => {
     phoneDiv.classList.add("col");
     phoneDiv.innerHTML = `
         <div class="card p-4">
-            <img src="${phone.images}" class="card-img-top" alt="...">
+            <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${phone.phone_name}</h5>
                 <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
