@@ -45,9 +45,9 @@ const displayPhones = (phones, dataLimit) => {
   toggleSpinner(false);
 };
 
+const searchField = document.getElementById("search-field");
 const processSearch = (dataLimit) => {
   toggleSpinner(true);
-  const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   loadPhones(searchText, dataLimit);
 };
@@ -55,17 +55,15 @@ const processSearch = (dataLimit) => {
 // handle search button click
 document.getElementById("btn-search").addEventListener("click", function () {
   // start loader
-  processSearch(10);
+  searchField.value ? processSearch(10) : alert("Please Search Something");
 });
 
 // search input field enter key handler
-document
-  .getElementById("search-field")
-  .addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      processSearch(10);
-    }
-  });
+searchField.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    searchField.value ? processSearch(10) : alert("Please Search Something");
+  }
+});
 
 const toggleSpinner = (isLoading) => {
   const loaderSection = document.getElementById("loader");
